@@ -4,10 +4,10 @@
 
 ## Methods
 Per the APCS subset PriorityQueue interface...
-* `add(String)`
-* `isEmpty()`
-* `peekMin()`
-* `removeMin()`
+* `add(String)` -- Adds an item to this priority queue
+* `isEmpty()` -- Returns true if this stack is empty, otherwise returns false
+* `peekMin()` -- Returns the smallest item stored in this priority queue without removing it
+* `removeMin()` -- Removes and returns the smallest item stored in this priority queue
 
 ## Time complexities & Decisions 
 We noticed that the Duke API ofered the time complexities for the operations `add(Object)`, `peekMin()`, and `removeMin()`, and we realized that this gave us a big hint about how one should implement said methods. 
