@@ -1,3 +1,8 @@
+//MissingCurlyBracket -- Raymond Wu, Woosuk Lee, Eric Wong
+//APCS pd8
+//HW48 -- Sink||Swim
+//2018-05-15
+
 /*****************************************************
  * class ALHeap
  * SKELETON
@@ -10,25 +15,28 @@ public class ALHeap
 {
 
   //instance vars
-  private ArrayList<Integer> _heap; 
+  private ArrayList<Integer> _heap;
 
   /*****************************************************
    * default constructor  ---  inits empty heap
    *****************************************************/
-  public ALHeap() 
-  { 
+  public ALHeap()
+  {
+    _heap = new ArrayList();
   }
-
-
 
   /*****************************************************
    * toString()  ---  overrides inherited method
-   * Returns either 
+   * Returns either
    * a) a level-order traversal of the tree (simple version)
    * b) ASCII representation of the tree (more complicated, more fun)
    *****************************************************/
-  public String toString() 
-  { 
+  public String toString()
+  {
+    String retStr = "[";
+    for( int i : _heap) {
+      retStr += i + ",";
+   }
   }//O(?)
 
 
@@ -37,7 +45,8 @@ public class ALHeap
    * Returns true if no meaningful elements in heap, false otherwise
    *****************************************************/
   public boolean isEmpty()
-  { 
+  {
+    return _heap.size() <= 0;
   }//O(?)
 
 
@@ -47,17 +56,17 @@ public class ALHeap
    * Postcondition: Heap remains unchanged.
    *****************************************************/
   public Integer peekMin()
-  { 
+  {
   }//O(?)
 
 
   /*****************************************************
-   * add(Integer) 
+   * add(Integer)
    * Inserts an element in the heap
    * Postcondition: Tree exhibits heap property.
    *****************************************************/
   public void add( Integer addVal )
-  { 
+  {
   }//O(?)
 
 
@@ -67,20 +76,20 @@ public class ALHeap
    * Postcondition: Tree maintains heap property.
    *****************************************************/
   public Integer removeMin()
-  { 
+  {
   }//O(?)
 
 
   /*****************************************************
    * minChildPos(int)  ---  helper fxn for removeMin()
-   * Returns index of least child, or 
+   * Returns index of least child, or
    * -1 if no children, or if input pos is not in ArrayList
    * Postcondition: Tree unchanged
    *****************************************************/
   private int minChildPos( int pos )
-  { 
+  {
   }//O(?)
-  
+
 
   //************ aux helper fxns ***************
   private Integer minOf( Integer a, Integer b )
@@ -94,7 +103,7 @@ public class ALHeap
   //swap for an ArrayList
   private void swap( int pos1, int pos2 )
   {
-    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );	
+    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );
   }
   //********************************************
 
