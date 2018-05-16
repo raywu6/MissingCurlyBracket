@@ -9,7 +9,7 @@
  * Implements a min heap using an ArrayList as underlying container
  *****************************************************/
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class ALHeap
 {
@@ -37,6 +37,7 @@ public class ALHeap
     for( int i : _heap) {
       retStr += i + ",";
    }
+    return retStr + "\b" + "]";
  }//O(n)
 
 
@@ -94,6 +95,9 @@ public class ALHeap
    *****************************************************/
   public Integer removeMin()
   {
+      if (isEmpty()) {
+	  throw new NoSuchElementException("no more elements!!!");
+      }
     swap(0, _heap.size()-1);
     int ans = _heap.remove(_heap.size()-1);
     int index = 0;
@@ -117,9 +121,9 @@ public class ALHeap
   private int minChildPos( int pos )
   {
       try{
-          if(_heap[pos * 2 + 2] == null) return pos * 2 + 1;
-          else if(_heap[pos * 2 + 1] == null) return pos * 2 + 2;
-          else if(_heap[pos * 2 + 2] < _heap[pos * 2 + 1]) return pos * 2 + 2;
+          if(_heap.get(pos * 2 + 2) == null) return pos * 2 + 1;
+          else if(_heap.get(pos * 2 + 1) == null) return pos * 2 + 2;
+          else if(_heap.get(pos * 2 + 2) < _heap.get(pos * 2 + 1)) return pos * 2 + 2;
           else return pos * 2 + 1;
       }
       catch(Exception e){
