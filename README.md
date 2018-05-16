@@ -16,4 +16,11 @@ The worst and average case for the `add(String)` method is **O(1)**. This is bec
  
 The worst and average case for the `peekMin()` method is **O(n)**. As the queue is not sorted based on priority, the elements of the priority queue must be iterated through to find the String with the minimum value. 
 
-The worst and average case for the `removeMin()` method is **O(n)**. As the queue is not sorted based on priority, the elements of the priority queue must be iterated through to find the String with the minimum value, and remove said String. 
+The worst and average case for the `removeMin()` method is **O(n)**. As the queue is not sorted based on priority, the elements of the priority queue must be iterated through to find the String with the minimum value, and remove said String.
+
+## To-Do
+1. Simple, independent methods (toString, constructor)
+2. helper fxns (minChildPos, swap)
+3a. add fxn
+3b. remove fxn
+4. peekMin, isEmpty (non-essential to the functionality of the heap)
