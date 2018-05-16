@@ -90,6 +90,12 @@ public class ALHeap
      * removeMin()  ---  means of removing an element from heap
      * Removes and returns least element in heap.
      * Postcondition: Tree maintains heap property.
+     *
+     * Algo:
+     *  0. If heap is empty, throw exception.
+     *  1. Swap root with bottom-most, right-most leaf.
+     *  2. Remove bottom-most, right-most leaf (old root).
+     *  3. Rearrange tree from top-down until tree exhibits minheap property.
      *****************************************************/
     public Integer removeMin()
     {
