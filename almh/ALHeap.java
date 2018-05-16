@@ -22,7 +22,7 @@ public class ALHeap
    *****************************************************/
   public ALHeap()
   {
-    _heap = new ArrayList();
+    _heap = new ArrayList<Integer>();
   }
 
   /*****************************************************
@@ -37,7 +37,7 @@ public class ALHeap
     for( int i : _heap) {
       retStr += i + ",";
    }
-  }//O(?)
+ }//O(n)
 
 
   /*****************************************************
@@ -46,8 +46,8 @@ public class ALHeap
    *****************************************************/
   public boolean isEmpty()
   {
-    return _heap.size() <= 0;
-  }//O(?)
+    return _heap.size() == 0;
+  }//O(1)
 
 
   /*****************************************************
@@ -57,7 +57,8 @@ public class ALHeap
    *****************************************************/
   public Integer peekMin()
   {
-  }//O(?)
+      return _heap.get(0);
+  }//O(1)
 
 
   /*****************************************************
@@ -67,7 +68,23 @@ public class ALHeap
    *****************************************************/
   public void add( Integer addVal )
   {
+    _heap.add(addVal);
+    int index = _heap.size() - 1;
+    int parent = (index-1)/2;
+
+    while (parent > 1 && _heap.get(index) < _heap.get(parent)) {
+      swap(index, parent);
+      index = parent;
+      parent = (index-1)/2;
+    }
   }//O(?)
+/*
+    public void swap(int i, int parent) {
+        int temp = _heap.get(parent);
+        _heap.set(parent, _heap.get(i));
+        _heap.set(i, temp);
+    }
+    */
 
 
   /*****************************************************
@@ -77,6 +94,17 @@ public class ALHeap
    *****************************************************/
   public Integer removeMin()
   {
+    swap(0, _heap.size()-1);
+    int ans = _heap.remove(_heap.size()-1);
+    int index = 0;
+    int child = minChildPos(index);
+    while (child > -1) {
+      swap(index, child);
+      index = child;
+      child = minChildPos(index);
+    }
+    return ans;
+
   }//O(?)
 
 
@@ -88,7 +116,16 @@ public class ALHeap
    *****************************************************/
   private int minChildPos( int pos )
   {
-  }//O(?)
+      try{
+          if(_heap[pos * 2 + 2] == null) return pos * 2 + 1;
+          else if(_heap[pos * 2 + 1] == null) return pos * 2 + 2;
+          else if(_heap[pos * 2 + 2] < _heap[pos * 2 + 1]) return pos * 2 + 2;
+          else return pos * 2 + 1;
+      }
+      catch(Exception e){
+          return -1;
+      }
+  }//O(1)
 
 
   //************ aux helper fxns ***************
@@ -105,14 +142,13 @@ public class ALHeap
   {
     _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );
   }
-  //********************************************
 
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
       ALHeap pile = new ALHeap();
 
       pile.add(2);
@@ -158,7 +194,7 @@ public class ALHeap
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
   }//end main()
 
 }//end class ALHeap
