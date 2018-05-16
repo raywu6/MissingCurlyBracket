@@ -67,8 +67,10 @@ public class ALHeap
      * Postcondition: Tree exhibits heap property.
      *
      * Algo:
-     * 0. Add addVal to end of heap ArrayList
-     * 1. 
+     *  0. Add addVal to left-most child of lowest depth.
+     * 1a. While addVal is less than parent,
+     *       swap addVal and parent.
+     * 1b.   Update parent.
      *****************************************************/
     public void add( Integer addVal )
     {
@@ -105,7 +107,7 @@ public class ALHeap
 	}
 	return ans;
 
-    }//O(?)
+    }//O(n)
 
 
     /*****************************************************
