@@ -22,7 +22,7 @@ public class ALHeap
    *****************************************************/
   public ALHeap()
   {
-    _heap = new ArrayList();
+    _heap = new ArrayList<Integer>();
   }
 
   /*****************************************************
@@ -37,7 +37,7 @@ public class ALHeap
     for( int i : _heap) {
       retStr += i + ",";
    }
-  }//O(?)
+ }//O(n)
 
 
   /*****************************************************
@@ -46,8 +46,8 @@ public class ALHeap
    *****************************************************/
   public boolean isEmpty()
   {
-    return _heap.size() <= 0;
-  }//O(?)
+    return _heap.size() == 0;
+  }//O(1)
 
 
   /*****************************************************
@@ -57,11 +57,8 @@ public class ALHeap
    *****************************************************/
   public Integer peekMin()
   {
-    if (!isEmpty)
-      return heap.get(0);
-    else
-      return NullPointerException;
-  }//O(?)
+      return _heap.get(0);
+  }//O(1)
 
 
   /*****************************************************
@@ -108,8 +105,16 @@ public class ALHeap
    *****************************************************/
   private int minChildPos( int pos )
   {
-    
-  }//O(?)
+      try{
+          if(_heap[pos * 2 + 2] == null) return pos * 2 + 1;
+          else if(_heap[pos * 2 + 1] == null) return pos * 2 + 2;
+          else if(_heap[pos * 2 + 2] < _heap[pos * 2 + 1]) return pos * 2 + 2;
+          else return pos * 2 + 1;
+      }
+      catch(Exception e){
+          return -1;
+      }
+  }//O(1)
 
 
   //************ aux helper fxns ***************
