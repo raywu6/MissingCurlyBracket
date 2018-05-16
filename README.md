@@ -18,9 +18,13 @@ The worst and average case for the `peekMin()` method is **O(n)**. As the queue 
 
 The worst and average case for the `removeMin()` method is **O(n)**. As the queue is not sorted based on priority, the elements of the priority queue must be iterated through to find the String with the minimum value, and remove said String.
 
-## To-Do
-1. Simple, independent methods (toString, constructor)
-2. helper fxns (minChildPos, swap)
-3a. add fxn
-3b. remove fxn
-4. peekMin, isEmpty (non-essential to the functionality of the heap)
+## Heap todo
+0. Implement `toString()` as we need it to track changes and debug the other methods
+1. Implement constructor `ALHeap()` as we need an instance of the class to call its methods
+2. Implement aux helper fxn `minOf(Integer, Integer)`
+3. Implement aux helper fxn `swap(int, int)`
+4. Implement helper fxn `minChildPos(int)` for `removeMin()`
+5. Implement `removeMin()`
+6. Implement `add(Integer)`
+7. Implement `isEmpty()`
+8. Implement `peekMin()`
